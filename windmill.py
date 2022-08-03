@@ -98,6 +98,9 @@ class WindmillScene(Scene):
         self.play(Rotate(
             windmill,-angle,rate_func=rate_func,run_time=run_time
         ),*added_anims)
+        #con esto cambia de punto el windmill
+        if not change_pivot_at_end:
+            windmill.pivot=new_pivot
         return [self.get_hit_flash(new_pivot)], run_time
     def get_hit_flash(self,point):
         color_flash=it.cycle(self.CONFIG['colors_flash'])
@@ -117,7 +120,7 @@ class WindmillScene(Scene):
         self.rotate_to_next_pivot(windmill)
         flashes,run_time=self.rotate_to_next_pivot(windmill)
         self.play(*flashes)
-        self.let_windmill_run(windmill,10)
+        self.let_windmill_run(windmill,30)
     def let_windmill_run(self,windmill,time):
         anims_from_last_hit=[]
         while time>0:
