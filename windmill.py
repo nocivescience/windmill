@@ -120,7 +120,7 @@ class WindmillScene(Scene):
         self.rotate_to_next_pivot(windmill)
         flashes,run_time=self.rotate_to_next_pivot(windmill)
         self.play(*flashes)
-        self.let_windmill_run(windmill,30)
+        self.let_windmill_run(windmill,60)
     def let_windmill_run(self,windmill,time):
         anims_from_last_hit=[]
         while time>0:
